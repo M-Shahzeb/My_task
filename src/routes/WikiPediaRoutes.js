@@ -1,70 +1,21 @@
 import express, { response } from "express";
 const router = express.Router();
 import wikiPediaModel from "../models/wikiRecords.js";
+import wikiPediacontroller from "../controllers/wikiController.js";
 import axios from "axios";
 
-router.post("/testRoute", async (req, res) => {
-  const data = axios
-    .get(
-      `https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&explaintext=1&exintro=1&titles=Albert%20Einstein`
-    )
-    .then((response) => {
-      const data = response.data.query.pages;
+router.post("/testRoute", wikiPediacontroller.insertWikiRecord);
 
-      //   const array = Object.keys(data);
-      const convert = Object.values(data);
+router.get("/getWikis",wikiPediacontroller.getAllWikiRecords);
+//  
 
-      const saveData = new wikiPediaModel({
-        title: convert[0].title,
-        description: convert[0].extract,
-      });
-      const success = saveData.save();
+router.get("/getWiki/:id", wikiPediacontroller.getWikiRecordById);
 
-      if (success) {
-        res.json({
-          status: true,
-          message: "Data is saved",
-          data: [],
-          code: 200,
-        });
-      } else {
-        res.json({
-          status: false,
-          message: "Data is failed to save",
-          data: [],
-          code: 400,
-        });
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-});
+router.delete("/deleteWiki/:id",wikiPediacontroller.deleteWikiRecord); 
+  
 
-router.get("/getWikis", async (req, res) => {
-  const all = await wikiPediaModel.find({});
 
-  res.send(all);
-});
-
-router.get("/getWiki/:id", async (req, res) => {
-  const all = await wikiPediaModel.find({ _id: req.params.id });
-
-  res.send(all);
-});
-router.delete("/deleteWiki/:id", async (req, res) => {
-  const all = await wikiPediaModel.find({ _id: req.params.id }).remove();
-
-  res.send("Deleted");
-});
-
-router.post("/updateWiki/:id", async (req, res) => {
-  const all = await wikiPediaModel.findOneAndUpdate(
-    { _id: req.params.id },
-    { title: req.body.title, description: req.body.description }
-  );
-
-  res.send("updated");
-});
+router.post("/updateWiki/:id", wikiPediacontroller.updateWikiRecords);
+  
 
 export default router;
