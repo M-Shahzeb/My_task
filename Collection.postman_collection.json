@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "fc4ba9d8-bc48-408e-930a-15059d23bd06",
+		"name": "Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Api # 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9009",
+					"host": [
+						"localhost"
+					],
+					"port": "9009"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store Wikipedia Api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:9009/testRoute",
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"testRoute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get All WIki",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9009/getWikis",
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"getWikis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9009/getWiki/61a9e8d9a3944e28acc0726f",
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"getWiki",
+						"61a9e8d9a3944e28acc0726f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Wiki",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:9009/deleteWiki/61a9e7fe71773e3de4477fd9",
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"deleteWiki",
+						"61a9e7fe71773e3de4477fd9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Wiki",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "updated",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "updated",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9009/updateWiki/61a9e85385863925d49db393",
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"updateWiki",
+						"61a9e85385863925d49db393"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
