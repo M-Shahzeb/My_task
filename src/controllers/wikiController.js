@@ -1,7 +1,8 @@
 import wikiPediaModel from "../models/wikiRecords.js";
+import axios from "axios";
 export default{
 
-  async insertWikiRecord(){
+  async insertWikiRecord(req,res){
     const data = axios
     .get(
       `https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&explaintext=1&exintro=1&titles=Albert%20Einstein`
@@ -47,14 +48,14 @@ export default{
       },
   
 
-  async getWikiRecordById(){
+  async getWikiRecordById(req,res){
     const all = await wikiPediaModel.find({ _id: req.params.id });
 
     res.send(all);
 
   },
 
-  async updateWikiRecords(){
+  async updateWikiRecords(req,res){
     const all = await wikiPediaModel.findOneAndUpdate(
       { _id: req.params.id },
       { title: req.body.title, description: req.body.description }
@@ -64,7 +65,7 @@ export default{
 
   },
 
-  async deleteWikiRecord(){
+  async deleteWikiRecord(req,res){
     const all = await wikiPediaModel.find({ _id: req.params.id }).remove();
 
     res.send("Deleted");

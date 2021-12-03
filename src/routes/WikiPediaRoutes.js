@@ -2,7 +2,7 @@ import express, { response } from "express";
 const router = express.Router();
 import wikiPediaModel from "../models/wikiRecords.js";
 import wikiPediacontroller from "../controllers/wikiController.js";
-import axios from "axios";
+
 
 router.post("/testRoute", wikiPediacontroller.insertWikiRecord);
 
