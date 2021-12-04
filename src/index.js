@@ -8,6 +8,7 @@ import mainUnauthRouter from "./routes/v1/unauthIndex.js";
 import mainAuthRouter from "./routes/v1/authIndex.js";
 import passportConfig from "./middlewares/passport.js";
 import { errors } from "./constants/errorMessages.js";
+import cors from 'cors';
 import wikiRoutes from "./routes/WikiPediaRoutes.js";
 
 // mongoose.connect("mongodb+srv://salman:nodejsapplication@goatplay.qlbse.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology:true});
@@ -108,6 +109,22 @@ app.use(
   passport.authenticate("jwt", { session: false }),
   mainAuthRouter
 );
+
+app
+.use(express.static('public'))
+.use(cors())
+.options('*', cors())
+app
+.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    if (req.method === 'OPTIONS') {
+      res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, OPTIONS');
+      res.header('Access-Control-Max-Age', 120);
+      return res.status(200).json({});
+    }
+    next();
+  });
 
 app.get("/", (req, res) => {
   res.send("Application is working properly");
