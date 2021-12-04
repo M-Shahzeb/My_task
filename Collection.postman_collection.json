@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fc4ba9d8-bc48-408e-930a-15059d23bd06",
+		"_postman_id": "8b3c1936-7bbb-49b8-8070-9b7f062661bf",
 		"name": "Collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -33,6 +33,173 @@
 					"port": "9009",
 					"path": [
 						"testRoute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "malaihakhan@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "khanlala",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "phoneNumber",
+							"value": "+923149905587",
+							"type": "text"
+						},
+						{
+							"key": "birthdate",
+							"value": "16021998",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "shahzeb",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "shah",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "zeb",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Mr",
+							"type": "text"
+						},
+						{
+							"key": "profileImage",
+							"type": "file",
+							"src": "/C:/Users/DELL/Desktop/Bazar R3/design/Buyer Flow/1. Splash.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:9009/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Birthdays",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:9009/getbirthdays",
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"getbirthdays"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate age",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9009/calcAge",
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"calcAge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "softDeleteFemaleUsers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:9009/softDeleteFemaleUsers",
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"softDeleteFemaleUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "malaiqakhan@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "khanlala",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:9009/login",
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"login"
 					]
 				}
 			},
@@ -112,12 +279,7 @@
 							"value": "updated",
 							"type": "text"
 						}
-					],
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					]
 				},
 				"url": {
 					"raw": "localhost:9009/updateWiki/61a9e85385863925d49db393",
