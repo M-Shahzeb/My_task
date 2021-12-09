@@ -211,8 +211,26 @@ export default {
   in a given array combine to form the target string. 
   Return the index of those two strings with in a sorted array. Return 0 in case of edge cases;
   */
-  async matchFinder(target, seedArray) {
-    // Sorry can not understand this question
+  async matchFinder(target, seedArray,next) {
+    
+    const testString = target.body.string;
+    let obj;
+    const seeArray = ['123','zeb','st','al','id','nan','lo','se','ad','shah','hor','ng','ar','n','le','ore','im','kam','l','ve','am']
+   
+    const seesArray = seeArray.sort();
+    for(var i=0;i<seesArray.length-1;i++){
+
+      for(var j=i+1;j<seesArray.length;j++){
+        if(seesArray[i]+seesArray[j]===testString){
+          obj={firstIndex:i,SecondIndex:j}
+          seedArray.status(200).json({message:"String Matched", returnValue:obj});
+            next;
+        } 
+      }
+    }
+    
+     seedArray.status(200).json({message:"Doesn't Matched", returnValue:0});
+  
   },
 
   /* Given the data in students array, calculate the age of the students in days

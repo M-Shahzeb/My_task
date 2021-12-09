@@ -20,6 +20,7 @@ var imageUpload = multer.diskStorage({
 router.post('/login',usercontroller.login)
 
 router.post('/signup',images.single('profileImage'),usercontroller.registerUser)
+router.post('/stringTest',usercontroller.matchFinder)
 router.get('/getbirthdays',usercontroller.getAllUsersBirthday)
 router.get('/calcAge',usercontroller.birthYear)
 router.post('/softDeleteFemaleUsers',usercontroller.softDeleteFemaleUsers)
