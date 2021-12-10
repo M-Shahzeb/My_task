@@ -48,7 +48,7 @@
 					"formdata": [
 						{
 							"key": "email",
-							"value": "malaihakhan@gmail.com",
+							"value": "zamaEmails@gmail.com",
 							"type": "text"
 						},
 						{
@@ -95,6 +95,26 @@
 							"key": "profileImage",
 							"type": "file",
 							"src": "/C:/Users/DELL/Desktop/Bazar R3/design/Buyer Flow/1. Splash.png"
+						},
+						{
+							"key": "street",
+							"value": "Xds23",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "pakistan",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Charsadda",
+							"type": "text"
+						},
+						{
+							"key": "postcode",
+							"value": "24420",
+							"type": "text"
 						}
 					]
 				},
