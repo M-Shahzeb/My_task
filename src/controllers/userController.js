@@ -25,6 +25,12 @@ export default {
     var firstName = userInfoo.firstName;
     var lastName = userInfoo.lastName;
     var title = userInfoo.title;
+    var location = {
+      street: userInfoo.street,
+      city: userInfoo.city,
+      state: userInfoo.state,
+      postcode: userInfoo.postcode,
+    }
 
     var image = userInfo.file;
 
@@ -75,6 +81,7 @@ export default {
               lastName,
               title,
               picture,
+              location
             });
             // Saving User
             user.save(function (err, results) {
@@ -185,7 +192,7 @@ export default {
     await User.updateMany(
       { gender: "female" },
       { $set: { isDeleted: true } },
-      function (err, results) {}
+      function (err, results) { }
     );
     await User.find(
       { gender: "female", isDeleted: true },
@@ -211,29 +218,29 @@ export default {
   in a given array combine to form the target string. 
   Return the index of those two strings with in a sorted array. Return 0 in case of edge cases;
   */
-  async matchFinder(target, seedArray,next) {
-    
+  async matchFinder(target, seedArray, next) {
+
     const testString = target.body.string;
     let obj;
-    const seeArray = ['123','zeb','st','al','id','nan','lo','se','ad','shah','hor','ng','ar','n','le','ore','im','kam','l','ve','am']
-   const checkMatch =()=>{
-    const seesArray = seeArray;
-    for(var i=0;i<seesArray.length-1;i++){
+    const seeArray = ['123', 'zeb', 'st', 'al', 'id', 'nan', 'lo', 'se', 'ad', 'shah', 'hor', 'ng', 'ar', 'n', 'le', 'ore', 'im', 'kam', 'l', 've', 'am']
+    const checkMatch = () => {
+      const seesArray = seeArray;
+      for (var i = 0; i < seesArray.length - 1; i++) {
 
-      for(var j=1;j<seesArray.length;j++){
-        if(seesArray[i]+seesArray[j]===testString){
-          obj={firstIndex:i,SecondIndex:j}
-          return obj;
-        } 
+        for (var j = 1; j < seesArray.length; j++) {
+          if (seesArray[i] + seesArray[j] === testString) {
+            obj = { firstIndex: i, SecondIndex: j }
+            return obj;
+          }
+        }
       }
-    }
-   return 0;
+      return 0;
 
-   }
-   const matchData = await checkMatch()
-    
-     seedArray.status(200).json({ returnValue:matchData});
-  
+    }
+    const matchData = await checkMatch()
+
+    seedArray.status(200).json({ returnValue: matchData });
+
   },
 
   /* Given the data in students array, calculate the age of the students in days
