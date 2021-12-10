@@ -216,20 +216,23 @@ export default {
     const testString = target.body.string;
     let obj;
     const seeArray = ['123','zeb','st','al','id','nan','lo','se','ad','shah','hor','ng','ar','n','le','ore','im','kam','l','ve','am']
-   
-    const seesArray = seeArray.sort();
+   const checkMatch =()=>{
+    const seesArray = seeArray;
     for(var i=0;i<seesArray.length-1;i++){
 
-      for(var j=i+1;j<seesArray.length;j++){
+      for(var j=1;j<seesArray.length;j++){
         if(seesArray[i]+seesArray[j]===testString){
           obj={firstIndex:i,SecondIndex:j}
-          seedArray.status(200).json({message:"String Matched", returnValue:obj});
-            next;
+          return obj;
         } 
       }
     }
+   return 0;
+
+   }
+   const matchData = await checkMatch()
     
-     seedArray.status(200).json({message:"Doesn't Matched", returnValue:0});
+     seedArray.status(200).json({ returnValue:matchData});
   
   },
 
